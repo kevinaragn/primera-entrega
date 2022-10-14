@@ -1,0 +1,68 @@
+    <h1>Torneos</h1>
+               <mat-form-field class="col-md-6">
+                <mat-label>Filtrar por numero de comision </mat-label>
+                    <input type="text" matInput (keyup)="filtrarJuego($event)">
+              
+            </mat-form-field>
+
+
+    <div class="row">
+         <table mat-table [dataSource]="dataSource" class="col-md-12">
+           
+           <!--juego         -->
+            <ng-container matColumnDef="juego">
+                <th math-header-cell *matHeaderCellDef>Juego</th>
+                <td mat-cell *matCellDef="let juego">{{torneo.juego | uppercase}} </td>
+            </ng-container>
+
+
+            <!--modalidad         -->
+            <ng-container matColumnDef="modalidad">
+                <th math-header-cell *matHeaderCellDef>modalidad </th>
+                <td mat-cell *matCellDef="let juego">{{torneo.modalidad}} </td>
+            </ng-container>
+
+            
+               <!--fecha inicio         -->
+
+               <ng-container matColumnDef="fechaInicio">
+                <th math-header-cell *matHeaderCellDef>Inicia</th>
+                <td mat-cell *matCellDef="let torneo">{{torneo.fechaInicio | date: 'dd/MM/YYYY'}} </td>
+            </ng-container>
+             
+            <!--fecha fin         -->
+
+             <ng-container matColumnDef="fechaFin">
+                <th math-header-cell *matHeaderCellDef>Finaliza</th>
+                <td mat-cell *matCellDef="let torneo">{{torneo.fechaFin |date: 'dd/MM/YYYY'}} </td>
+            </ng-container>
+
+            <!--insripcion Abierta         -->
+
+            <ng-container matColumnDef="inscripcionAbierta">
+                <th math-header-cell *matHeaderCellDef>Inscripcion Abierta</th>
+                <td mat-cell *matCellDef="let torneo">
+                    <span [appBooleanoEstilo]="torneo.inscripcionAbierta">{{torneo.inscripcionAbierta | booleanoATexto: 'Si' : 'No'}}</span>  </td>
+            </ng-container>
+
+
+            <!--acciones         -->
+
+            <ng-container matColumnDef="acciones">
+                <th math-header-cell *matHeaderCellDef>Acciones</th>
+                <td mat-cell mat-cell *matCellDef>
+                    <button mat-icon-button>
+                <mat-icon> delete</mat-icon> </button>
+                </td>
+                
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+            <tr mat-row *matRowDef="let row; columns: columnas"></tr>
+
+         </table>
+    </div>
+    <table>
+        
+    </table>
+ 

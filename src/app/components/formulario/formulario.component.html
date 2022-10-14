@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+<h1>Alta de Usuario</h1>
+    </div>
+        <div class="row">
+            <div class="col">
+                <form [formGroup]="formulario" (ngSubmit)="submitForm()">
+                    <div class="row">
+                        <div class="col">
+                         <div class="input-group mb-3">
+                            <input type="text" [ngClass]= "{'form-control': true, 'is-invalid': formulario.get ('edad')?.errors && formulario.get ('edad')?.touched}" formControlName="edad" placeholder="edad" aria-label="edad" aria-describedby="">
+                                <div class="invalid-feedback">
+                                    <small *ngIf="formulario.get('edad')?.errors?.['min']">Debes tener 21 años o mas</small>
+                                    <small *ngIf="formulario.get('edad')?.errors?.['required'] && formulario.get('edad')?.touched">El campo es requerido</small>
+                                    
+                                 </div>  
+                            </div>
+                        </div>
+
+
+
+                    <div class="row">
+                        <div class="col">
+                         <div class="input-group mb-3">
+                            <input type="text" [ngClass]= "{'form-control': true, 'is-invalid': formulario.get ('nombre')?.errors && formulario.get ('nombre')?.touched}" formControlName="nombre" placeholder="Nombre" aria-label="Nombre" aria-describedby="">
+                                <div class="invalid-feedback">
+                                    <small *ngIf="formulario.get('nombre')?.errors?.['required'] && formulario.get('nombre')?.touched">El campo es requerido</small>
+                                 </div>  
+                            </div>
+                        </div>
+                    <div class="row">
+                        <div class="col">
+                         <div class="input-group mb-3">
+                            <input type="text" [ngClass]= "{'form-control': true, 'is-invalid': formulario.get ('apellido')?.errors && formulario.get ('apellido')?.touched}" formControlName="apellido" placeholder="apellido" aria-label="Nombre" aria-describedby="">
+                                <div class="invalid-feedback">
+                                    <small *ngIf="formulario.get('apellido')?.errors?.['required'] && formulario.get('apellido')?.touched">El campo es requerido</small>
+                                 </div>  
+                            </div>
+                        </div>
+                    <div class="row">
+                        <div class="col">
+                         <div class="input-group mb-3">
+                            <input type="password" [ngClass]= "{'form-control': true, 'is-invalid': formulario.get ('password')?.errors && formulario.get ('apellido')?.touched}" formControlName="password" placeholder="password" aria-label="password" aria-describedby="">
+                                <div class="invalid-feedback">
+                                    <small *ngIf="formulario.get('password')?.errors?.['required'] && formulario.get('password')?.touched">El campo es requerido</small>
+                                 </div>  
+                                
+                                       
+                                        <div class="row">
+                                            <div class="col">
+                                                <button class="btn btn-primary" type="submit">Enviar Datos</button>
+                                            </div>
+                                        </div>
+                                        </div>
+                                 </div>
+                            </div>
+                        </div>
+                  </div>
+            </div>
+     
+   
